@@ -1,35 +1,20 @@
 "use client"
-import { supabase } from '@/lib/supabase';
-import { useRouter } from 'next/navigation'
-import React, { useEffect } from 'react'
-import { Button, LoginButton } from '../components/ui/LoginButton';
-import BuyButton from '../components/ui/BuyButton';
 
-function DashboardPage() {
-  const router = useRouter();
-  useEffect(()=>{
-      async function checkUser() {
-        const {data} = await supabase.auth.getUser();
-        if(!data.user){
-          router.push("/login")
-        }
-      } 
-      checkUser()
-  }, [])
+import Hero from '../components/layout/Hero'
+import Navbar from '../components/layout/Navbar'
+export default function DashboardPage() {
+  
+
+  
   return (
-    <div className='p-10 flex gap-9'>
-        <h1 className='text-2xl font-bold'>Dashboard - Protected</h1>
-        <LoginButton
-          onClick={async () => {
-            await supabase.auth.signOut()
-            router.push("/login")
-          }}
-        >
-          Logout
-        </LoginButton>
-        <BuyButton onClick= {() => alert("halo")}>Halo</BuyButton>
-    </div>
+   <main className='h-svh flex flex-col'>
+      <Navbar />
+      {/* Hero akan mengisi sisa layar */}
+      <div className="flex-1 flex items-center justify-center">
+        <Hero />
+      </div>
+    </main>
   )
 }
 
-export default DashboardPage
+
