@@ -50,7 +50,7 @@ export default function Navbar() {
 
 
   return (
-    <nav className='w-full flex gap-10 items-center justify-between py-4 md:px-20 px-4    '>
+    <nav className='w-full flex gap-10 items-center justify-between py-4 md:px-20 px-4 relative  z-50'>
         <Link className='flex gap-4 items-center  p-4' href='/dashboard'>
             <Image src="/vercel.svg" alt="company logo" width={25} height={25} />
             <p className='font-bold'>StudyIt-Hub</p>
@@ -113,7 +113,6 @@ export default function Navbar() {
                             Dashboard
                         </Link>
                                 
-                                {/* Dropdown versi mobile disederhanakan menjadi list biasa */}
                         <div className="flex flex-col gap-3">
                             <span className="font-semibold text-muted-foreground">Learning Path</span>
                                 <div className="flex flex-col gap-2 pl-4 border-l">
